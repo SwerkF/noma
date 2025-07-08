@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Geist_Mono, Poppins } from 'next/font/google'
 
-import ThemeProvider from './theme-provider'
 import SignUpPage from './auth/signup/page'
+import ThemeProvider from './theme-provider'
 
 import { AppSidebar } from '@/components/app-sidebar'
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
