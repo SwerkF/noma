@@ -1,11 +1,12 @@
-import type { NextConfig } from 'next';
-import path from 'path';
+import path from 'path'
+
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  outputFileTracingRoot: path.join(__dirname, '../../'),
-  eslint: {
-    dirs: ['src/app', 'src/components', 'src/lib', 'src/pages', 'src/utils'],
-  },
-};
+	outputFileTracingRoot: path.join(__dirname, '../../'),
+	eslint: {
+		dirs: ['src/app', 'src/components', 'src/lib', 'src/pages', 'src/utils'],
+	},
+}
 
-export default nextConfig;
+export default nextConfig

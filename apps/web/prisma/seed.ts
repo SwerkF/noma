@@ -1,9 +1,3 @@
-import { PrismaClient, Prisma } from "../src/generated/prisma";
+export async function main() {}
 
-const prisma = new PrismaClient();
-
-export async function main() {
- 
-}
-
-main();
+main()
