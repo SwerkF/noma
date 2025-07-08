@@ -171,6 +171,9 @@ importers:
 
   packages/shared:
     dependencies:
+      prettier:
+        specifier: ^3.6.2
+        version: 3.6.2
       zod:
         specifier: ^3.25.74
         version: 3.25.74
