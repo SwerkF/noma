@@ -1,9 +1,9 @@
-'use client'
+'use client';
 
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button';
 import {
 	Form,
 	FormControl,
@@ -11,9 +11,9 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { signupSchema, SignupSchema } from '@/packages/zod/authSchemas'
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { signupSchema, SignupSchema } from '@/packages/zod/authSchemas';
 
 export default function SignupForm() {
 	const form = useForm<SignupSchema>({
@@ -23,7 +23,7 @@ export default function SignupForm() {
 			email: '',
 			password: '',
 		},
-	})
+	});
 
 	function onSubmit() {}
 
@@ -75,5 +75,5 @@ export default function SignupForm() {
 				<Button type="submit">Submit</Button>
 			</form>
 		</Form>
-	)
+	);
 }

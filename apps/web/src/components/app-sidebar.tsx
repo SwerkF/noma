@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import {
 	Building2,
@@ -14,11 +14,11 @@ import {
 	Sun,
 	Ticket,
 	User,
-} from 'lucide-react'
-import { useTheme } from 'next-themes'
-import { useState } from 'react'
+} from 'lucide-react';
+import { useTheme } from 'next-themes';
+import { useState } from 'react';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -26,14 +26,14 @@ import {
 	DropdownMenuLabel,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+} from '@/components/ui/dropdown-menu';
 import {
 	Select,
 	SelectContent,
 	SelectItem,
 	SelectTrigger,
 	SelectValue,
-} from '@/components/ui/select'
+} from '@/components/ui/select';
 import {
 	Sidebar,
 	SidebarContent,
@@ -45,7 +45,7 @@ import {
 	SidebarMenu,
 	SidebarMenuButton,
 	SidebarMenuItem,
-} from '@/components/ui/sidebar'
+} from '@/components/ui/sidebar';
 
 /**
  * Éléments de navigation principaux de la sidebar
@@ -71,7 +71,7 @@ const navigationItems = [
 		icon: Ticket,
 		href: '/tickets',
 	},
-]
+];
 
 /**
  * Workspaces disponibles pour l'utilisateur
@@ -80,27 +80,27 @@ const workspaces = [
 	{ id: '1', name: 'Mon Workspace', description: 'Workspace personnel' },
 	{ id: '2', name: 'Équipe Design', description: 'Projets créatifs' },
 	{ id: '3', name: 'Développement', description: 'Projets techniques' },
-]
+];
 
 /**
  * Composant pour basculer entre les thèmes
  * @returns {JSX.Element} Bouton de bascule de thème
  */
 function ThemeToggle() {
-	const { theme, setTheme } = useTheme()
+	const { theme, setTheme } = useTheme();
 
 	/**
 	 * Bascule entre les thèmes disponibles
 	 */
 	const toggleTheme = () => {
 		if (theme === 'light') {
-			setTheme('dark')
+			setTheme('dark');
 		} else if (theme === 'dark') {
-			setTheme('system')
+			setTheme('system');
 		} else {
-			setTheme('light')
+			setTheme('light');
 		}
-	}
+	};
 
 	/**
 	 * Obtient l'icône appropriée selon le thème actuel
@@ -109,13 +109,13 @@ function ThemeToggle() {
 	const getThemeIcon = () => {
 		switch (theme) {
 			case 'light':
-				return <Sun className="h-4 w-4" />
+				return <Sun className="h-4 w-4" />;
 			case 'dark':
-				return <Moon className="h-4 w-4" />
+				return <Moon className="h-4 w-4" />;
 			default:
-				return <Monitor className="h-4 w-4" />
+				return <Monitor className="h-4 w-4" />;
 		}
-	}
+	};
 
 	/**
 	 * Obtient le libellé du thème actuel
@@ -124,13 +124,13 @@ function ThemeToggle() {
 	const getThemeLabel = () => {
 		switch (theme) {
 			case 'light':
-				return 'Clair'
+				return 'Clair';
 			case 'dark':
-				return 'Sombre'
+				return 'Sombre';
 			default:
-				return 'Système'
+				return 'Système';
 		}
-	}
+	};
 
 	return (
 		<SidebarMenuItem>
@@ -142,7 +142,7 @@ function ThemeToggle() {
 				<span>Thème: {getThemeLabel()}</span>
 			</SidebarMenuButton>
 		</SidebarMenuItem>
-	)
+	);
 }
 
 /**
@@ -150,13 +150,13 @@ function ThemeToggle() {
  * @returns {JSX.Element} Composant sidebar avec navigation, sélecteur workspace et menu utilisateur
  */
 export function AppSidebar() {
-	const [selectedWorkspace, setSelectedWorkspace] = useState('1')
+	const [selectedWorkspace, setSelectedWorkspace] = useState('1');
 
-	const handleLogout = () => {}
+	const handleLogout = () => {};
 
-	const handleSettings = () => {}
+	const handleSettings = () => {};
 
-	const handleHelp = () => {}
+	const handleHelp = () => {};
 
 	return (
 		<Sidebar collapsible="icon">
@@ -292,5 +292,5 @@ export function AppSidebar() {
 				</SidebarMenu>
 			</SidebarFooter>
 		</Sidebar>
-	)
+	);
 }

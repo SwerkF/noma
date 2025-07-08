@@ -1,4 +1,4 @@
-import PageLayout from '@/components/page-layout'
+import PageLayout from '@/components/page-layout';
 
 export default function About() {
 	return (
@@ -14,5 +14,5 @@ export default function About() {
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
 			</p>
 		</PageLayout>
-	)
+	);
 }
