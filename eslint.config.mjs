@@ -1,19 +1,19 @@
-import { FlatCompat } from '@eslint/eslintrc'
-import js from '@eslint/js'
-import typescriptEslint from '@typescript-eslint/eslint-plugin'
-import typescriptParser from '@typescript-eslint/parser'
-import importPlugin from 'eslint-plugin-import'
-import react from 'eslint-plugin-react'
-import reactHooks from 'eslint-plugin-react-hooks'
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
+import { FlatCompat } from '@eslint/eslintrc';
+import js from '@eslint/js';
+import typescriptEslint from '@typescript-eslint/eslint-plugin';
+import typescriptParser from '@typescript-eslint/parser';
+import importPlugin from 'eslint-plugin-import';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
 	baseDirectory: __dirname,
-})
+});
 
 /**
  * Configuration ESLint globale pour le monorepo
@@ -109,6 +109,7 @@ export default [
 			'prefer-const': 'error',
 			'no-var': 'error',
 			eqeqeq: ['error', 'always'],
+			semi: ['error', 'always'], // Oblige l'utilisation des points-virgules
 		},
 	},
 
@@ -169,6 +170,9 @@ export default [
 			// Règles React Hooks
 			'react-hooks/rules-of-hooks': 'error',
 			'react-hooks/exhaustive-deps': 'warn',
+
+			// Points-virgules obligatoires
+			semi: ['error', 'always'],
 		},
 		settings: {
 			react: {
@@ -214,6 +218,7 @@ export default [
 			'prefer-const': 'error',
 			'no-var': 'error',
 			eqeqeq: ['error', 'always'],
+			semi: ['error', 'always'],
 		},
 	},
 
@@ -236,9 +241,10 @@ export default [
 		rules: {
 			'import/order': 'off',
 			'@typescript-eslint/no-var-requires': 'off',
+			semi: ['error', 'always'],
 		},
 	},
 
 	// Étendre les configurations compatibles
 	...compat.extends('prettier'),
-]
+];

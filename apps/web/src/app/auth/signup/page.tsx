@@ -1,7 +1,7 @@
-import SignupForm from './signup-form'
+import SignupForm from './signup-form';
 
-import PageLayout from '@/components/page-layout'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import PageLayout from '@/components/page-layout';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function SignUpPage() {
 	return (
@@ -15,5 +15,5 @@ export default function SignUpPage() {
 				</CardContent>
 			</Card>
 		</PageLayout>
-	)
+	);
 }

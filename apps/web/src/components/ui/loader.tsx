@@ -1,7 +1,7 @@
 export default function Loader({
 	fullScreen = false,
 }: {
-	fullScreen?: boolean
+	fullScreen?: boolean;
 }) {
 	return (
 		<div
@@ -69,5 +69,5 @@ export default function Loader({
 				</g>
 			</svg>
 		</div>
-	)
+	);
 }

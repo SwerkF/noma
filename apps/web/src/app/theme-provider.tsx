@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import type { ThemeProviderProps } from 'next-themes'
-import { ThemeProvider as NextThemesProvider } from 'next-themes'
+import type { ThemeProviderProps } from 'next-themes';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
 /**
  * Composant fournisseur de thème pour l'application
@@ -23,5 +23,5 @@ export default function ThemeProvider({
 		>
 			{children}
 		</NextThemesProvider>
-	)
+	);
 }
