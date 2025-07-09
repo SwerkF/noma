@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "==================== PRE COMMIT ===================="
+echo "Ceci est un script qui s'exécute avant chaque commit automatiquement"
+echo "afin de vérifier si le code est conforme aux standards du code attendu."
+echo "En cas de problème, contactez la personne en charge du projet."
+echo "==================== PRE COMMIT ===================="
+
+pnpm run fix-all
+
