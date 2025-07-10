@@ -1,5 +1,6 @@
-import PageLayout from '@/components/page-layout';
 import { LockIcon } from 'lucide-react';
+
+import PageLayout from '@/components/page-layout';
 
 export default function UnauthorizedPage() {
 	return (

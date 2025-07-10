@@ -1,0 +1,7 @@
+{
+	"buildCommand": "pnpm run build",
+	"installCommand": "pnpm install && pnpm run postinstall",
+	"env": {
+		"PRISMA_GENERATE_SKIP_AUTOINSTALL": "true"
+	}
+}

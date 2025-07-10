@@ -65,7 +65,7 @@ export default async function AboutPage({
 								{dict.home.features.taskTracking}
 							</h3>
 							<p className="text-sm text-gray-600 dark:text-gray-400">
-								Suivi détaillé de l'avancement et des performances.
+								Suivi détaillé de l&apos;avancement et des performances.
 							</p>
 						</div>
 					</div>

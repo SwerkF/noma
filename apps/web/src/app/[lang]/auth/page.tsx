@@ -1,6 +1,7 @@
+import { unauthorized } from 'next/navigation';
+
 import PageLayout from '@/components/page-layout';
 import { getUser } from '@/lib/auth-server';
-import { unauthorized } from 'next/navigation';
 
 export default async function AuthPage() {
 	const user = await getUser();

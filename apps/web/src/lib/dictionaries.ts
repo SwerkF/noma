@@ -1,6 +1,13 @@
 import type { Locale } from '@/middleware';
 
 /**
+ * Type récursif pour naviguer dans les propriétés imbriquées du dictionnaire
+ */
+type NestedRecord = {
+	[key: string]: string | NestedRecord;
+};
+
+/**
  * Type pour les dictionnaires de traduction
  */
 export type Dictionary = {
@@ -49,12 +56,7 @@ export type Dictionary = {
 		theme: string;
 	};
 	auth: {
-		signin: {
-			title: string;
-			email: string;
-			password: string;
-			submit: string;
-		};
+		signin: string;
 		signup: {
 			title: string;
 			name: string;
@@ -163,5 +165,16 @@ export const getNestedTranslation = (
 	dict: Dictionary,
 	path: string
 ): string | undefined => {
-	return path.split('.').reduce((obj: any, key: string) => obj?.[key], dict);
+	const keys = path.split('.');
+	let result: NestedRecord | string = dict;
+
+	for (const key of keys) {
+		if (result && typeof result === 'object' && key in result) {
+			result = result[key];
+		} else {
+			return undefined;
+		}
+	}
+
+	return typeof result === 'string' ? result : undefined;
 };

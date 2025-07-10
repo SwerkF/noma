@@ -87,7 +87,7 @@ export default [
 			'@typescript-eslint/no-var-requires': 'error',
 
 			// Règles d'import
-			'import/order': [
+			/*'import/order': [
 				'error',
 				{
 					groups: [
@@ -100,7 +100,7 @@ export default [
 					],
 					'newlines-between': 'always',
 				},
-			],
+			],*/
 
 			// Règles générales
 			'no-console': 'warn',

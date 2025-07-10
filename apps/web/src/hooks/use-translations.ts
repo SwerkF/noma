@@ -7,6 +7,13 @@ import type { Dictionary } from '@/lib/dictionaries';
 import type { Locale } from '@/middleware';
 
 /**
+ * Type récursif pour naviguer dans les propriétés imbriquées du dictionnaire
+ */
+type NestedRecord = {
+	[key: string]: string | NestedRecord;
+};
+
+/**
  * Hook personnalisé pour utiliser les traductions côté client
  * @returns Object contenant les traductions, l'état de chargement et la langue
  */
@@ -28,8 +35,7 @@ export function useTranslations() {
 				const translations = await import(`@/dictionaries/${lang}.json`);
 				setDict(translations.default);
 			} catch (err) {
-				console.error('Erreur lors du chargement des traductions:', err);
-				setError('Erreur lors du chargement des traductions');
+				setError(`Erreur lors du chargement des traductions: ${err}`);
 			} finally {
 				setIsLoading(false);
 			}
@@ -49,11 +55,11 @@ export function useTranslations() {
 		if (!dict) return path;
 
 		const keys = path.split('.');
-		let result: any = dict;
+		let result: NestedRecord = dict;
 
 		for (const key of keys) {
 			if (result && typeof result === 'object' && key in result) {
-				result = result[key];
+				result = result[key] as NestedRecord;
 			} else {
 				return path; // Retourner la clé si la traduction n'est pas trouvée
 			}

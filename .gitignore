@@ -1,1 +1,11 @@
 node_modules
+.next
+.vercel
+*.log
+.env*
+!.env.example
+dist
+build
+
+# Prisma
+apps/web/src/generated/

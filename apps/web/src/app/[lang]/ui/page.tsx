@@ -1,5 +1,8 @@
 'use client';
 
+import { Clipboard } from 'lucide-react';
+import { toast } from 'sonner';
+
 import PageLayout from '@/components/page-layout';
 import { Button } from '@/components/ui/button';
 import {
@@ -10,9 +13,6 @@ import {
 	CardTitle,
 } from '@/components/ui/card';
 import Loading from '@/components/ui/loading';
-import { Spinner } from '@/components/ui/spinner';
-import { Clipboard } from 'lucide-react';
-import { toast } from 'sonner';
 
 export default function UIPage() {
 	const copyToClipboard = (text: string) => {
@@ -98,20 +98,18 @@ export default function UIPage() {
 						</Button>
 					</CardContent>
 				</Card>
-				<Card className='relative'>
+				<Card className="relative">
 					<CardHeader>
 						<CardTitle>Loading</CardTitle>
 						<CardDescription>
 							Loading is a component that allows you to create a loading state.
 						</CardDescription>
 					</CardHeader>
-					<CardContent
-						
-					>
+					<CardContent>
 						<Loading />
 					</CardContent>
 					<div
-						className="absolute right-2 top-2 cursor-pointer text-muted-foreground"
+						className="text-muted-foreground absolute right-2 top-2 cursor-pointer"
 						onClick={() => {
 							copyToClipboard('<Loading />');
 						}}

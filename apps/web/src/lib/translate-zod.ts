@@ -1,6 +1,13 @@
 import type { Dictionary } from '@/lib/dictionaries';
 
 /**
+ * Type récursif pour naviguer dans les propriétés imbriquées du dictionnaire
+ */
+type NestedRecord = {
+	[key: string]: string | NestedRecord;
+};
+
+/**
  * Traduit un message Zod en utilisant le dictionnaire
  * @param message - Message avec clé de traduction (ex: 'dict.validation.name.required')
  * @param dict - Dictionnaire de traductions
@@ -17,11 +24,11 @@ export function translateZodMessage(message: string, dict: Dictionary): string {
 
 	// Naviguer dans le dictionnaire
 	const keys = path.split('.');
-	let result: any = dict;
+	let result: NestedRecord = dict;
 
 	for (const key of keys) {
 		if (result && typeof result === 'object' && key in result) {
-			result = result[key];
+			result = result[key] as NestedRecord;
 		} else {
 			return message; // Retourner le message original si pas trouvé
 		}

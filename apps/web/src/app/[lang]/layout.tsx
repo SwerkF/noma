@@ -1,17 +1,15 @@
 import type { Metadata } from 'next';
 import { Geist_Mono, Poppins } from 'next/font/google';
 import { notFound } from 'next/navigation';
+import { Toaster } from 'sonner';
 
 import ThemeProvider from './theme-provider';
 
-import { authClient } from '@/lib/auth-client';
+import { AppSidebar } from '@/components/app-sidebar';
+import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { getDictionary } from '@/lib/dictionaries';
 import type { Locale } from '@/middleware';
-
-import { Toaster } from 'sonner';
 import './globals.css';
-import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
-import { AppSidebar } from '@/components/app-sidebar';
 
 const geistMono = Geist_Mono({
 	variable: '--font-geist-mono',
@@ -72,19 +70,19 @@ export default async function RootLayout({
 		notFound();
 	}
 
-	const session = await authClient.getSession();
+	//const session = await authClient.getSession();
 
 	return (
 		<html lang={lang} suppressHydrationWarning>
 			<body className={`${poppins.variable} ${geistMono.variable} antialiased`}>
 				<ThemeProvider>
-						<SidebarProvider>
-							<AppSidebar />
-							<main className='w-full'>
-								<SidebarTrigger />
-								{children}
-							</main>
-						</SidebarProvider>
+					<SidebarProvider>
+						<AppSidebar />
+						<main className="w-full">
+							<SidebarTrigger />
+							{children}
+						</main>
+					</SidebarProvider>
 				</ThemeProvider>
 				<Toaster />
 			</body>

@@ -1,8 +1,9 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import Lottie from 'lottie-react';
 import { useTheme } from 'next-themes';
+
+import { cn } from '@/lib/utils';
 
 const defaultProps = {
 	pageSize: 'full-page',
@@ -15,7 +16,6 @@ import CONFIG_LIGHT from '@/assets/lottie/loader-light.json';
 
 export default function Loading({
 	pageSize,
-	size,
 	className,
 }: {
 	pageSize?:

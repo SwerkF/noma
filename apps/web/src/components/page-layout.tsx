@@ -2,9 +2,10 @@
 
 import { ReactNode } from 'react';
 
+import Loading from './ui/loading';
+
 import { useTranslations } from '@/hooks/use-translations';
 import { cn } from '@/lib/utils';
-import Loading from './ui/loading';
 
 /**
  * Props pour le composant PageLayout
@@ -30,7 +31,7 @@ export default function PageLayout({
 	showTitle = false,
 	className = '',
 }: PageLayoutProps) {
-	const { dict, isLoading } = useTranslations();
+	const { isLoading } = useTranslations();
 
 	if (isLoading) {
 		return <Loading />;

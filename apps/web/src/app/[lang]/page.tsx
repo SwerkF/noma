@@ -57,7 +57,7 @@ export default async function Home({
 							{dict.home.features.taskTracking}
 						</h3>
 						<p className="text-sm text-gray-600 dark:text-gray-400">
-							Suivez l'avancement de vos tâches et projets.
+							Suivez l&apos;avancement de vos tâches et projets.
 						</p>
 					</div>
 				</div>
