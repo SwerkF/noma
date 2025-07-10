@@ -46,6 +46,26 @@ export async function generateMetadata({
 	return {
 		title: 'Noma',
 		description: dict.about.description,
+		openGraph: {
+			title: 'Noma',
+			description: dict.about.description,
+			type: 'website',
+			locale: lang,
+			images: [
+				{
+					url: '/og.png',
+					width: 1200,
+					height: 630,
+					alt: 'Noma - ' + dict.about.description,
+				},
+			],
+		},
+		twitter: {
+			card: 'summary_large_image',
+			title: 'Noma',
+			description: dict.about.description,
+			images: ['/og.png'],
+		},
 	};
 }
 
