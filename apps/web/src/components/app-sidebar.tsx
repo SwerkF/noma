@@ -18,6 +18,7 @@ import {
 import { useTheme } from 'next-themes';
 import { useState } from 'react';
 
+import { LanguageSwitcher } from '@/components/language-switcher';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
 	DropdownMenu,
@@ -46,48 +47,17 @@ import {
 	SidebarMenuButton,
 	SidebarMenuItem,
 } from '@/components/ui/sidebar';
+import { useTranslations } from '@/hooks/use-translations';
 
 /**
- * Éléments de navigation principaux de la sidebar
- */
-const navigationItems = [
-	{
-		title: 'Dashboard',
-		icon: LayoutDashboard,
-		href: '/dashboard',
-	},
-	{
-		title: 'Projets',
-		icon: Folder,
-		href: '/projects',
-	},
-	{
-		title: 'Tâches',
-		icon: ListTodo,
-		href: '/tasks',
-	},
-	{
-		title: 'Tickets',
-		icon: Ticket,
-		href: '/tickets',
-	},
-];
-
-/**
- * Workspaces disponibles pour l'utilisateur
- */
-const workspaces = [
-	{ id: '1', name: 'Mon Workspace', description: 'Workspace personnel' },
-	{ id: '2', name: 'Équipe Design', description: 'Projets créatifs' },
-	{ id: '3', name: 'Développement', description: 'Projets techniques' },
-];
-
-/**
- * Composant pour basculer entre les thèmes
+ * Composant pour basculer entre les thèmes avec traductions
  * @returns {JSX.Element} Bouton de bascule de thème
  */
 function ThemeToggle() {
 	const { theme, setTheme } = useTheme();
+	const { dict } = useTranslations();
+
+	if (!dict) return null;
 
 	/**
 	 * Bascule entre les thèmes disponibles
@@ -124,11 +94,11 @@ function ThemeToggle() {
 	const getThemeLabel = () => {
 		switch (theme) {
 			case 'light':
-				return 'Clair';
+				return dict.theme.light;
 			case 'dark':
-				return 'Sombre';
+				return dict.theme.dark;
 			default:
-				return 'Système';
+				return dict.theme.system;
 		}
 	};
 
@@ -136,33 +106,103 @@ function ThemeToggle() {
 		<SidebarMenuItem>
 			<SidebarMenuButton
 				onClick={toggleTheme}
-				tooltip={`Thème: ${getThemeLabel()}`}
+				tooltip={`${dict.theme.theme}: ${getThemeLabel()}`}
 			>
 				{getThemeIcon()}
-				<span>Thème: {getThemeLabel()}</span>
+				<span>
+					{dict.theme.theme}: {getThemeLabel()}
+				</span>
 			</SidebarMenuButton>
 		</SidebarMenuItem>
 	);
 }
 
 /**
- * Composant principal de la sidebar de l'application
+ * Composant principal de la sidebar de l'application avec traductions
  * @returns {JSX.Element} Composant sidebar avec navigation, sélecteur workspace et menu utilisateur
  */
 export function AppSidebar() {
 	const [selectedWorkspace, setSelectedWorkspace] = useState('1');
+	const { dict, lang } = useTranslations();
 
-	const handleLogout = () => {};
+	// Afficher un skeleton pendant le chargement
+	if (!dict) {
+		return (
+			<Sidebar collapsible="icon">
+				<div className="animate-pulse p-4">
+					<div className="mb-4 h-4 rounded bg-gray-200"></div>
+					<div className="mb-2 h-8 rounded bg-gray-200"></div>
+					<div className="mb-2 h-8 rounded bg-gray-200"></div>
+					<div className="h-8 rounded bg-gray-200"></div>
+				</div>
+			</Sidebar>
+		);
+	}
 
-	const handleSettings = () => {};
+	/**
+	 * Éléments de navigation principaux traduits
+	 */
+	const navigationItems = [
+		{
+			title: dict.navigation.dashboard,
+			icon: LayoutDashboard,
+			href: `/${lang}/dashboard`,
+		},
+		{
+			title: dict.navigation.projects,
+			icon: Folder,
+			href: `/${lang}/projects`,
+		},
+		{
+			title: dict.navigation.tasks,
+			icon: ListTodo,
+			href: `/${lang}/tasks`,
+		},
+		{
+			title: dict.navigation.tickets,
+			icon: Ticket,
+			href: `/${lang}/tickets`,
+		},
+	];
 
-	const handleHelp = () => {};
+	/**
+	 * Workspaces traduits
+	 */
+	const workspaces = [
+		{
+			id: '1',
+			name: dict.sidebar.personalWorkspace,
+			description: dict.sidebar.personalWorkspace,
+		},
+		{
+			id: '2',
+			name: dict.sidebar.designTeam,
+			description: dict.sidebar.creativeProjects,
+		},
+		{
+			id: '3',
+			name: dict.sidebar.development,
+			description: dict.sidebar.technicalProjects,
+		},
+	];
+
+	const handleLogout = () => {
+		// Logique de déconnexion
+	};
+
+	const handleSettings = () => {
+		// Navigation vers les paramètres
+	};
+
+	const handleHelp = () => {
+		// Navigation vers l'aide
+	};
 
 	return (
 		<Sidebar collapsible="icon">
 			<SidebarHeader>
 				<SidebarGroup>
-					<SidebarGroupLabel>Workspace</SidebarGroupLabel>
+					<SidebarGroupLabel>{dict.navigation.workspace}</SidebarGroupLabel>
 					<SidebarGroupContent>
 						<Select
 							value={selectedWorkspace}
@@ -171,7 +211,7 @@ export function AppSidebar() {
 							<SelectTrigger className="w-full">
 								<div className="flex items-center gap-2">
 									<Building2 className="h-4 w-4" />
-									<SelectValue placeholder="Sélectionner un workspace" />
+									<SelectValue placeholder={dict.sidebar.selectWorkspace} />
 								</div>
 							</SelectTrigger>
 							<SelectContent>
@@ -179,7 +219,7 @@ export function AppSidebar() {
 									<SelectItem key={workspace.id} value={workspace.id}>
 										<div className="flex flex-col items-start">
 											<span className="font-medium">{workspace.name}</span>
-											<span className="text-xs text-muted-foreground">
+											<span className="text-muted-foreground text-xs">
 												{workspace.description}
 											</span>
 										</div>
@@ -193,7 +233,7 @@ export function AppSidebar() {
 
 			<SidebarContent>
 				<SidebarGroup>
-					<SidebarGroupLabel>Navigation</SidebarGroupLabel>
+					<SidebarGroupLabel>{dict.navigation.dashboard}</SidebarGroupLabel>
 					<SidebarGroupContent>
 						<SidebarMenu>
 							{navigationItems.map((item) => (
@@ -211,10 +251,13 @@ export function AppSidebar() {
 				</SidebarGroup>
 
 				<SidebarGroup>
-					<SidebarGroupLabel>Préférences</SidebarGroupLabel>
+					<SidebarGroupLabel>{dict.navigation.preferences}</SidebarGroupLabel>
 					<SidebarGroupContent>
 						<SidebarMenu>
 							<ThemeToggle />
+							<SidebarMenuItem>
+								<LanguageSwitcher currentLang={lang} />
+							</SidebarMenuItem>
 						</SidebarMenu>
 					</SidebarGroupContent>
 				</SidebarGroup>
@@ -232,7 +275,7 @@ export function AppSidebar() {
 									<Avatar className="h-8 w-8 rounded-lg">
 										<AvatarImage
 											src="/avatars/user.jpg"
-											alt="Avatar utilisateur"
+											alt={dict.sidebar.userAvatar}
 										/>
 										<AvatarFallback className="rounded-lg">JD</AvatarFallback>
 									</Avatar>
@@ -256,7 +299,7 @@ export function AppSidebar() {
 										<Avatar className="h-8 w-8 rounded-lg">
 											<AvatarImage
 												src="/avatars/user.jpg"
-												alt="Avatar utilisateur"
+												alt={dict.sidebar.userAvatar}
 											/>
 											<AvatarFallback className="rounded-lg">JD</AvatarFallback>
 										</Avatar>
@@ -271,20 +314,20 @@ export function AppSidebar() {
 								<DropdownMenuSeparator />
 								<DropdownMenuItem onClick={() => {}}>
 									<User className="mr-2 h-4 w-4" />
-									<span>Profil</span>
+									<span>{dict.navigation.profile}</span>
 								</DropdownMenuItem>
 								<DropdownMenuItem onClick={handleSettings}>
 									<Settings className="mr-2 h-4 w-4" />
-									<span>Paramètres</span>
+									<span>{dict.navigation.settings}</span>
 								</DropdownMenuItem>
 								<DropdownMenuItem onClick={handleHelp}>
 									<HelpCircle className="mr-2 h-4 w-4" />
-									<span>Assistance</span>
+									<span>{dict.navigation.help}</span>
 								</DropdownMenuItem>
 								<DropdownMenuSeparator />
 								<DropdownMenuItem onClick={handleLogout}>
 									<LogOut className="mr-2 h-4 w-4" />
-									<span>Déconnexion</span>
+									<span>{dict.navigation.logout}</span>
 								</DropdownMenuItem>
 							</DropdownMenuContent>
 						</DropdownMenu>

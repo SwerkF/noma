@@ -10,6 +10,9 @@
 	"printWidth": 80,
 	"endOfLine": "lf",
 	"trailingComma": "es5",
-	"plugins": ["prettier-plugin-organize-imports"],
+	"plugins": [
+		"prettier-plugin-organize-imports",
+		"prettier-plugin-tailwindcss"
+	],
 	"quoteProps": "preserve"
 }

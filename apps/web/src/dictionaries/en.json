@@ -1,0 +1,127 @@
+{
+	"common": {
+		"loading": "Loading...",
+		"error": "Error",
+		"success": "Success",
+		"cancel": "Cancel",
+		"confirm": "Confirm",
+		"save": "Save",
+		"edit": "Edit",
+		"delete": "Delete",
+		"search": "Search",
+		"back": "Back",
+		"next": "Next",
+		"previous": "Previous",
+		"close": "Close"
+	},
+	"navigation": {
+		"home": "Home",
+		"about": "About",
+		"dashboard": "Dashboard",
+		"projects": "Projects",
+		"settings": "Settings",
+		"profile": "Profile",
+		"logout": "Logout",
+		"tasks": "Tasks",
+		"tickets": "Tickets",
+		"workspace": "Workspace",
+		"preferences": "Preferences",
+		"help": "Help"
+	},
+	"sidebar": {
+		"selectWorkspace": "Select a workspace",
+		"personalWorkspace": "Personal workspace",
+		"designTeam": "Design Team",
+		"development": "Development",
+		"creativeProjects": "Creative projects",
+		"technicalProjects": "Technical projects",
+		"userAvatar": "User avatar"
+	},
+	"theme": {
+		"light": "Light",
+		"dark": "Dark",
+		"system": "System",
+		"theme": "Theme"
+	},
+	"auth": {
+		"signin": "Sign In",
+		"signup": {
+			"title": "Sign Up",
+			"name": "Name",
+			"email": "Email",
+			"password": "Password",
+			"submit": "Sign Up"
+		},
+		"signout": "Sign Out",
+		"email": "Email",
+		"password": "Password",
+		"confirmPassword": "Confirm Password",
+		"forgotPassword": "Forgot Password?",
+		"rememberMe": "Remember Me",
+		"alreadyHaveAccount": "Already have an account?",
+		"dontHaveAccount": "Don't have an account?",
+		"createAccount": "Create Account",
+		"welcomeBack": "Welcome Back!",
+		"getStarted": "Get Started"
+	},
+	"home": {
+		"title": "Welcome to Noma",
+		"subtitle": "Your project management tool",
+		"getStarted": "Get Started",
+		"learnMore": "Learn More",
+		"features": {
+			"title": "Features",
+			"projectManagement": "Project Management",
+			"teamCollaboration": "Team Collaboration",
+			"taskTracking": "Task Tracking"
+		}
+	},
+	"about": {
+		"title": "About Noma",
+		"description": "Noma is a modern project management tool designed to enhance your team's productivity.",
+		"mission": "Our mission is to simplify project management for teams of all sizes.",
+		"vision": "We envision a world where collaboration is seamless and efficient."
+	},
+	"projects": {
+		"title": "Projects",
+		"createProject": "Create Project",
+		"noProjects": "No projects found",
+		"projectName": "Project Name",
+		"projectDescription": "Project Description",
+		"status": "Status",
+		"dueDate": "Due Date",
+		"members": "Members",
+		"progress": "Progress"
+	},
+	"errors": {
+		"notFound": "Page Not Found",
+		"serverError": "Server Error",
+		"unauthorized": "Unauthorized",
+		"forbidden": "Forbidden",
+		"badRequest": "Bad Request",
+		"networkError": "Network Error",
+		"validationError": "Validation Error"
+	},
+	"validation": {
+		"name": {
+			"required": "Name is required",
+			"minLength": "Name must be at least 3 characters long"
+		},
+		"email": {
+			"required": "Email is required",
+			"invalid": "Email is not valid"
+		},
+		"password": {
+			"required": "Password is required",
+			"minLength": "Password must be at least 8 characters long",
+			"weak": "Password is too weak"
+		},
+		"confirmPassword": {
+			"required": "Password confirmation is required",
+			"noMatch": "Passwords do not match"
+		},
+		"currentPassword": {
+			"required": "Current password is required"
+		}
+	}
+}

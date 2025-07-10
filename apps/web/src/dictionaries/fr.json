@@ -1,0 +1,127 @@
+{
+	"common": {
+		"loading": "Chargement...",
+		"error": "Erreur",
+		"success": "Succès",
+		"cancel": "Annuler",
+		"confirm": "Confirmer",
+		"save": "Enregistrer",
+		"edit": "Modifier",
+		"delete": "Supprimer",
+		"search": "Rechercher",
+		"back": "Retour",
+		"next": "Suivant",
+		"previous": "Précédent",
+		"close": "Fermer"
+	},
+	"navigation": {
+		"home": "Accueil",
+		"about": "À propos",
+		"dashboard": "Tableau de bord",
+		"projects": "Projets",
+		"settings": "Paramètres",
+		"profile": "Profil",
+		"logout": "Déconnexion",
+		"tasks": "Tâches",
+		"tickets": "Tickets",
+		"workspace": "Workspace",
+		"preferences": "Préférences",
+		"help": "Assistance"
+	},
+	"sidebar": {
+		"selectWorkspace": "Sélectionner un workspace",
+		"personalWorkspace": "Workspace personnel",
+		"designTeam": "Équipe Design",
+		"development": "Développement",
+		"creativeProjects": "Projets créatifs",
+		"technicalProjects": "Projets techniques",
+		"userAvatar": "Avatar utilisateur"
+	},
+	"theme": {
+		"light": "Clair",
+		"dark": "Sombre",
+		"system": "Système",
+		"theme": "Thème"
+	},
+	"auth": {
+		"signin": "Se connecter",
+		"signup": {
+			"title": "S'inscrire",
+			"name": "Nom",
+			"email": "Email",
+			"password": "Mot de passe",
+			"submit": "S'inscrire"
+		},
+		"signout": "Se déconnecter",
+		"email": "Email",
+		"password": "Mot de passe",
+		"confirmPassword": "Confirmer le mot de passe",
+		"forgotPassword": "Mot de passe oublié ?",
+		"rememberMe": "Se souvenir de moi",
+		"alreadyHaveAccount": "Vous avez déjà un compte ?",
+		"dontHaveAccount": "Vous n'avez pas de compte ?",
+		"createAccount": "Créer un compte",
+		"welcomeBack": "Bon retour !",
+		"getStarted": "Commencer"
+	},
+	"home": {
+		"title": "Bienvenue sur Noma",
+		"subtitle": "Votre outil de gestion de projet",
+		"getStarted": "Commencer",
+		"learnMore": "En savoir plus",
+		"features": {
+			"title": "Fonctionnalités",
+			"projectManagement": "Gestion de projet",
+			"teamCollaboration": "Collaboration d'équipe",
+			"taskTracking": "Suivi des tâches"
+		}
+	},
+	"about": {
+		"title": "À propos de Noma",
+		"description": "Noma est un outil moderne de gestion de projet conçu pour améliorer la productivité de votre équipe.",
+		"mission": "Notre mission est de simplifier la gestion de projet pour les équipes de toutes tailles.",
+		"vision": "Nous envisageons un monde où la collaboration est transparente et efficace."
+	},
+	"projects": {
+		"title": "Projets",
+		"createProject": "Créer un projet",
+		"noProjects": "Aucun projet trouvé",
+		"projectName": "Nom du projet",
+		"projectDescription": "Description du projet",
+		"status": "Statut",
+		"dueDate": "Date d'échéance",
+		"members": "Membres",
+		"progress": "Progression"
+	},
+	"errors": {
+		"notFound": "Page non trouvée",
+		"serverError": "Erreur serveur",
+		"unauthorized": "Non autorisé",
+		"forbidden": "Accès interdit",
+		"badRequest": "Requête invalide",
+		"networkError": "Erreur réseau",
+		"validationError": "Erreur de validation"
+	},
+	"validation": {
+		"name": {
+			"required": "Le nom est requis",
+			"minLength": "Le nom doit contenir au moins 3 caractères"
+		},
+		"email": {
+			"required": "L'email est requis",
+			"invalid": "L'email n'est pas valide"
+		},
+		"password": {
+			"required": "Le mot de passe est requis",
+			"minLength": "Le mot de passe doit contenir au moins 8 caractères",
+			"weak": "Le mot de passe est trop faible"
+		},
+		"confirmPassword": {
+			"required": "La confirmation du mot de passe est requise",
+			"noMatch": "Les mots de passe ne correspondent pas"
+		},
+		"currentPassword": {
+			"required": "Le mot de passe actuel est requis"
+		}
+	}
+}

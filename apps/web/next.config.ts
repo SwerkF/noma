@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
 	eslint: {
 		dirs: ['src/app', 'src/components', 'src/lib', 'src/pages', 'src/utils'],
 	},
+	serverExternalPackages: ['@formatjs/intl-localematcher', 'negotiator'],
+	experimental: {
+		authInterrupts: true,
+	},
 };
 
 export default nextConfig;

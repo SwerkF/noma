@@ -14,6 +14,8 @@ import {
 } from 'react-hook-form';
 
 import { Label } from '@/components/ui/label';
+import { useTranslations } from '@/hooks/use-translations';
+import { translateZodMessage } from '@/lib/translate-zod';
 import { cn } from '@/lib/utils';
 
 const Form = FormProvider;
@@ -136,9 +138,19 @@ function FormDescription({ className, ...props }: React.ComponentProps<'p'>) {
 	);
 }
 
+/**
+ * Composant FormMessage avec traduction automatique des messages d'erreur Zod
+ */
 function FormMessage({ className, ...props }: React.ComponentProps<'p'>) {
 	const { error, formMessageId } = useFormField();
-	const body = error ? String(error?.message ?? '') : props.children;
+	const { dict } = useTranslations();
+
+	// Traduire le message d'erreur si possible
+	let body = error ? String(error?.message ?? '') : props.children;
+
+	if (error && dict && typeof body === 'string') {
+		body = translateZodMessage(body, dict);
+	}
 
 	if (!body) {
 		return null;
