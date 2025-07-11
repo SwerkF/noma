@@ -1,6 +1,6 @@
 'use client';
 
-import { Clipboard } from 'lucide-react';
+import { Clipboard, DollarSign } from 'lucide-react';
 import { toast } from 'sonner';
 
 import PageLayout from '@/components/page-layout';
@@ -13,6 +13,7 @@ import {
 	CardTitle,
 } from '@/components/ui/card';
 import Loading from '@/components/ui/loading';
+import StatsCard from '@/components/ui/stats-card';
 
 export default function UIPage() {
 	const copyToClipboard = (text: string) => {
@@ -117,6 +118,22 @@ export default function UIPage() {
 						<Clipboard size={16} />
 					</div>
 				</Card>
+				<div className="col-span-1 grid grid-cols-1 gap-4">
+					<StatsCard
+						title="Total Revenue"
+						value="100,000"
+						previousValue="100,000"
+						text="Revenue"
+						icon={<DollarSign />}
+					/>
+					<StatsCard
+						title="Total Revenue"
+						value="100,000"
+						previousValue="100,000"
+						text="Revenue"
+						icon={<DollarSign />}
+					/>
+				</div>
 			</div>
 		</PageLayout>
 	);

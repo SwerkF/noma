@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: noma-postgres
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: noma
+      POSTGRES_PASSWORD: noma
+      POSTGRES_DB: noma
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+    name: noma-postgres-data
